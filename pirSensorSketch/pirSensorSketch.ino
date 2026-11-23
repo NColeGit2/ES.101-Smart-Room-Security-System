@@ -1,4 +1,5 @@
 int pirValue;
+bool flag=false;
 
 void setup() {
   // put your setup code here, to run once:
@@ -11,15 +12,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   pirValue=digitalRead(12);
-  Serial.println(pirValue);
   digitalWrite(14, pirValue);
-  /*
-  Serial.println("LED ON");
-  digitalWrite(14, LOW);
-  delay(500);
-
-  Serial.println("LED OFF");
-  digitalWrite(14, HIGH);
-  delay(1000);
-  */
+  if(pirValue==1 && !flag){
+    //flag=true;
+    Serial.println("Motion detected");
+    //delay(1000);
+    //flag=false;
+  }
 }
